@@ -22,6 +22,16 @@
 		{
 			"Name": "CodeEditor",
 			"Enabled": true
+		},
+		{
+			"Name": "SCUE4",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/cff7ca410375488fb0d13221b7446041"
+		},
+		{
+			"Name": "LowEntryExtStdLib",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/846c2ad08f164f45b0335ecebf85361e"
 		}
 	]
 }

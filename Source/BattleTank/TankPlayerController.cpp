@@ -1,6 +1,7 @@
 // (c) Copyright 2017 Veilbreaker Entertainment
 
 #include "TankPlayerController.h"
+#include "Tank.h"
 
 void ATankPlayerController::BeginPlay()
 {
