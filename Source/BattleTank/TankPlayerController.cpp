@@ -8,6 +8,7 @@ void ATankPlayerController::BeginPlay()
 	Super::BeginPlay();
 
 	auto ControlledTank = GetControlledTank();
+
 	if (!ControlledTank)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("PlayerController is not possesing a tank."));
@@ -67,7 +68,7 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVec
 	auto EndLoc = StartLoc + (LookDirection * LineTraceRange);
 
 	FCollisionQueryParams Params;
-	Params.AddIgnoredActor(GetControlledPawn());
+	Params.AddIgnoredActor(GetPawn());
 	if (GetWorld()->LineTraceSingleByChannel(
 			HitResult,
 			StartLoc,
