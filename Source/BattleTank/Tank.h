@@ -9,6 +9,7 @@
 // Forward declarations
 class UTankBarrel; // Tank Barrel static mesh component
 class UTankAimingComponent; // Moves the barrel to the aim direction
+class AProjectile; // Projectile the tank can fire
 
 UCLASS()
 class BATTLETANK_API ATank : public APawn
@@ -41,4 +42,10 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = Firing)
 	float LaunchSpeed = 4000;
+
+	UPROPERTY(EditAnywhere, Category = Setup)
+	TSubclassOf<AProjectile> ProjectileBlueprint;
+
+	// Local barrel reference for spawning a projectile
+	UTankBarrel* Barrel = nullptr;
 };
