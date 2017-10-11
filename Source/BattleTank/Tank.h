@@ -9,6 +9,7 @@
 // Forward declarations
 class UTankBarrel; // Tank Barrel static mesh component
 class UTankAimingComponent; // Moves the barrel to the aim direction
+class UTankMovementComponent; // Responsible for the movement of the tank
 class AProjectile; // Projectile the tank can fire
 
 UCLASS()
@@ -30,6 +31,9 @@ public:
 
 protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
+
+	UPROPERTY(BlueprintReadOnly)
+	UTankMovementComponent* TankMovementComponent = nullptr;
 
 private:	
 	// Sets default values for this pawn's properties
