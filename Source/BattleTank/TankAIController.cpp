@@ -1,29 +1,26 @@
 // (c) Copyright 2017 Veilbreaker Entertainment
 
 #include "TankAIController.h"
-#include "Tank.h"
-
-void ATankAIController::BeginPlay()
-{
-	Super::BeginPlay();
-}
+#include "TankAimingComponent.h"
+// Depends on movement component via path-finding system
 
 void ATankAIController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	auto PlayerTank = Cast<ATank>(GetWorld()->GetFirstPlayerController()->GetPawn());
-	auto ControlledTank = Cast<ATank>(GetPawn());
+	auto PlayerTank = GetWorld()->GetFirstPlayerController()->GetPawn();
+	auto ControlledTank = GetPawn();
+	auto AimingComponent = GetPawn()->FindComponentByClass<UTankAimingComponent>();
 
-	if (PlayerTank)
-	{
-		// Move towards the player
-		MoveToActor(PlayerTank, AcceptanceRadius);
+	if (!ensure(PlayerTank && ControlledTank)) { return; }
+	if (!ensure(AimingComponent)) { return; }
 
-		//Aim at the player
-		ControlledTank->AimAt(PlayerTank->GetActorLocation());
+	// Move towards the player
+	MoveToActor(PlayerTank, AcceptanceRadius);
 
-		//Fire if ready
-		ControlledTank->Fire();
-	}
+	//Aim at the player
+	AimingComponent->AimAt(PlayerTank->GetActorLocation());
+
+	//Fire if ready
+	AimingComponent->Fire();
 }

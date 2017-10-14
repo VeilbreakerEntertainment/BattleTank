@@ -7,7 +7,7 @@
 #include "TankAIController.generated.h"
 
 // Forward declarations
-class ATank;
+class UTankAimingComponent;
 
 /**
  * 
@@ -18,7 +18,6 @@ class BATTLETANK_API ATankAIController : public AAIController
 	GENERATED_BODY()
 
 private:
-	void BeginPlay() override;
 	void Tick(float DeltaTime) override;
 
 	// How close an AI tank can get to the player
