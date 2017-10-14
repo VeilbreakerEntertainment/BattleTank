@@ -13,10 +13,12 @@ void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool
 {
 	// Unnecessary to call Super when replacing the functionality
 	auto TankForward = GetOwner()->GetActorForwardVector().GetSafeNormal();
-	auto AIForwardIntention = MoveVelocity.GetSafeNormal();
-	auto ForwardThrow = FVector::DotProduct(TankForward, AIForwardIntention);
+	auto AIMoveIntention = MoveVelocity.GetSafeNormal();
+	auto ForwardThrow = FVector::DotProduct(TankForward, AIMoveIntention);
+	auto RightThrow = FVector::CrossProduct(TankForward, AIMoveIntention).Z;
 
 	IntendMove(ForwardThrow);
+	IntendTurn(RightThrow);
 }
 
 void UTankMovementComponent::IntendMove(float Throw)
