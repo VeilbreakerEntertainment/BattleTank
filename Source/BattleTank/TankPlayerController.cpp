@@ -11,7 +11,7 @@ void ATankPlayerController::BeginPlay()
 
 	if (!ControlledTank)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("PlayerController is not possesing a tank."));
+		UE_LOG(LogTemp, Warning, TEXT("PlayerController is not possessing a tank."));
 	}
 	else
 	{
@@ -41,10 +41,10 @@ void ATankPlayerController::AimTowardsCrosshair()
 	}
 }
 
-//Line-trace through the crosshair
+//Line-trace through the cross-hair
 bool ATankPlayerController::GetSightRayHitLocation(FVector& HitLocation) const
 {
-	//Find the crosshair position
+	//Find the cross-hair position
 	int32 ViewportSizeX, ViewportSizeY;
 
 	GetViewportSize(ViewportSizeX, ViewportSizeY);
@@ -88,7 +88,7 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVec
 
 bool ATankPlayerController::GetLookDirection(FVector2D ScreenLoc, FVector& LookDirection) const
 {
-	//Convert position of crosshair to a world direction
+	//Convert position of cross-hair to a world direction
 	FVector CameraWorldLocation; //To be discarded
 
 	return DeprojectScreenPositionToWorld(

@@ -15,15 +15,6 @@ UTankAimingComponent::UTankAimingComponent()
 	// ...
 }
 
-// Called when the game starts
-void UTankAimingComponent::BeginPlay()
-{
-	Super::BeginPlay();
-
-	// ...
-
-}
-
 void UTankAimingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
 	if (!BarrelToSet) { return; }

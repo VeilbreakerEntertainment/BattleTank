@@ -6,6 +6,16 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "TankAimingComponent.generated.h"
+
+// Enum for aiming state
+UENUM() // Adhering to Unreal coding standards
+enum class EAimState : uint8
+{
+	Reloading,
+	Aiming,
+	Locked
+};
+
 // Forward declarations
 class UTankBarrel;
 class UTankTurret;
@@ -24,8 +34,8 @@ public:
 	void AimAt(FVector HitLocation, float LaunchSpeed);
 
 protected:
-	// Called when the game starts
-	virtual void BeginPlay() override;
+	UPROPERTY(BlueprintReadOnly, Category = "Aim State")
+	EAimState AimState = EAimState::Aiming;
 
 private:
 	UTankBarrel* Barrel = nullptr;
