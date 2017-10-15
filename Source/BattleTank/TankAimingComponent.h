@@ -13,7 +13,8 @@ enum class EAimState : uint8
 {
 	Reloading,
 	Aiming,
-	Locked
+	Locked,
+	OutOfAmmo
 };
 
 // Forward declarations
@@ -30,12 +31,16 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void Initialise(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet);
 
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+	int GetAmmoLeft() const;
+
 	UFUNCTION(BlueprintCallable, Category = "Firing")
 	void Fire();
 
 	void AimAt(FVector HitLocation);
 
 	EAimState GetAimState() const;
+
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "Aim State")
 	EAimState AimState = EAimState::Reloading;
@@ -58,7 +63,7 @@ private:
 	TSubclassOf<AProjectile> ProjectileBlueprint;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
-	float LaunchSpeed = 4000;
+	float LaunchSpeed = 8000;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float ReloadTimeInSeconds = 3;
@@ -66,4 +71,6 @@ private:
 	double LastFireTime = 0;
 
 	FVector AimDirection;
+
+	int AmmoLeft = 3;
 };
