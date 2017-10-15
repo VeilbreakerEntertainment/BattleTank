@@ -37,7 +37,7 @@ public:
 
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "Aim State")
-	EAimState AimState = EAimState::Locked;
+	EAimState AimState = EAimState::Reloading;
 
 private:
 	// Sets default values for this component's properties
@@ -46,7 +46,12 @@ private:
 	UTankBarrel* Barrel = nullptr;
 	UTankTurret* Turret = nullptr;
 
+	virtual void BeginPlay() override;
+	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
+
 	void MoveBarrelTowards(FVector AimDirection);
+
+	bool IsBarrelMoving();
 
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	TSubclassOf<AProjectile> ProjectileBlueprint;
@@ -58,4 +63,6 @@ private:
 	float ReloadTimeInSeconds = 3;
 
 	double LastFireTime = 0;
+
+	FVector AimDirection;
 };
