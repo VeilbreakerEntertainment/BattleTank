@@ -50,11 +50,11 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& HitLocation) const
 
 	if (GetLookDirection(ScreenLoc, LookDirection))
 	{
-		//Line-trace single by channel
-		GetLookVectorHitLocation(LookDirection, HitLocation);
+		//Line-trace single by channel (returns a bool)
+		return GetLookVectorHitLocation(LookDirection, HitLocation);
 	}
 
-	return true;
+	return false;
 }
 
 bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const
