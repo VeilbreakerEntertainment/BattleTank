@@ -31,11 +31,11 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void Initialise(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet);
 
-	UFUNCTION(BlueprintCallable, Category = "Setup")
-	int32 GetAmmoLeft() const;
-
 	UFUNCTION(BlueprintCallable, Category = "Firing")
 	void Fire();
+
+	UFUNCTION(BlueprintCallable, Category = "Firing")
+	int32 GetAmmoLeft() const;
 
 	void AimAt(FVector HitLocation);
 
@@ -69,7 +69,7 @@ private:
 	float ReloadTimeInSeconds = 3;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
-	int32 AmmoLeft = 20.0;
+	int32 AmmoLeft = 20;
 
 	double LastFireTime = 0;
 
