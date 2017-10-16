@@ -5,7 +5,8 @@ An open-world tank battling game with simple AI, terrain, and advanced control s
 
 <h3>Keyboard & mouse</h3>
 
-<strong></strong> &mdash; <br>
+&mdash;&mdash;&mdash;
+<strong>Escape</strong> &mdash; Exit game<br>
 <strong>Mouse-move</strong> &mdash; Aim<br>
 <strong>Left-mouse</strong> &mdash; Fire<br>
 <strong>W/Up</strong> &mdash; Throttle tank forward<br>
@@ -15,6 +16,7 @@ An open-world tank battling game with simple AI, terrain, and advanced control s
 
 <h3>Controller</h3>
 
+&mdash;&mdash;&mdash;
 <strong>Gamepad special left</strong> &mdash; Exit game<br>
 <strong>Gamepad right thumbstick</strong> &mdash; Aim<br>
 <strong>Gamepad face button bottom</strong> &mdash; Fire<br>
