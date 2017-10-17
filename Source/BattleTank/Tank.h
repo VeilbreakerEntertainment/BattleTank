@@ -15,6 +15,8 @@ public:
 	// Called by the engine when actor damage is dealt
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const & DamageEvent, class AController * EventInstigator, AActor * DamageCauser) override;
 
+	UFUNCTION(BlueprintPure, Category = "Health")
+	float GetHealthPercent() const;
 private:	
 	// Sets default values for this pawn's properties
 	ATank();
