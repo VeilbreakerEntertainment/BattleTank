@@ -26,6 +26,11 @@ protected:
 	void FoundAimingComponent(UTankAimingComponent* AimingComponent);
 
 private:
+	virtual void SetPawn(APawn* InPawn) override;
+
+	UFUNCTION()
+	void OnControlledTankDeath();
+
 	// Start the tank moving the barrel so that a shot would hit where the cross-hair is
 	void AimTowardsCrosshair();
 
